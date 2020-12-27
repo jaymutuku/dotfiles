@@ -22,3 +22,9 @@ alias 'gr=git remote'
 alias 'grs=git remote show'
 alias 'glo=git log --pretty=oneline'
 alias 'glol=git log --graph  --pretty=oneline --decorate'
+
+## add zsh prompt in path
+fpath=(/home/don $fpath)
+
+## Autoload zsh prompt it
+autoload -Uz prompt_purification_setup && prompt_purification_setup
