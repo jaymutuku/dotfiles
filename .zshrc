@@ -1,3 +1,31 @@
+
+# path
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/sudo:/snap/bin:/usr/sbin/go" 
+
+
+# where to find the globally installed node modules
+export NODE_PATH="/usr/local/lib/node_modules:$PATH"
+
+
+# Add ANDROID_HOME variable
+export ANDROID_HOME="home/don/Android/Sdk"
+export PATH="$ANDROID_HOME/tools:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
+
+#Set Anaconda as default python 
+export PYTHONPATH="/opt/anaconda/bin:$PATH"
+
+export PATH="$PYTHONPATH:/home/don/Documents/scripts/python"
+
+export GOPATH=$HOME/go
+export PATH=${PATH}:/{GOPATH}/bin
+
+# tex live
+export PATH="/opt/texlive/2020/bin/x86_64-linux:$PATH"
+
+#
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
