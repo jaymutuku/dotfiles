@@ -1,0 +1,24 @@
+[user]
+	email = mutuku.josphat@gmail.com
+	name = jaymutuku
+
+[alias]
+	gb='git branch'
+	gp='git push'
+	gpo='git push origin'
+	gtd='git tag --delete'
+	gpl='git pull'
+	gplo='git pull origin'
+	gc='git commit'
+	gst='git status'
+	gd='git diff'
+	gaa='git add .'
+	ga='git add '
+	gco='git checkout'
+	gsb='git switch branch'
+	gm='git merge'
+	gl='git log'
+	gr='git remote'
+	grs='git remote show'
+	glo='git log --pretty=oneline'
+	glol='git log --graph  --pretty=oneline --decorate'

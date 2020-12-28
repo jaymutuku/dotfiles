@@ -18,16 +18,10 @@ git branch + time and working directory path
 
 - [Arch Linux](https://archlinux.org)
 
-### Reference
-
-- [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
-- [Zsh Theme : Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-- [Inspiration](https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config)
-
 ### TODO
 
 - [ ] Add more file dotfiles<sup id ="fn1">[1](#add-more-dotfiles)</sup> in this repo.
-- [ ] Add 
+- [ ] Add
 
 <span id="fn1">1 </span> Add the following dotfiles [&#8617;](#fn1)
 
@@ -37,3 +31,23 @@ git branch + time and working directory path
 - .asciinema
 - .gitconfig
 - .todo.cfg
+
+### Misc
+
+#### List all .gitconfig parameters
+
+```shell
+$ git config --list
+```
+
+#### List just aliases
+
+```shell
+$ git config --get-regexp alias
+```
+
+### Reference
+
+- [The best way to store your dotfiles: A bare Git repository](https://www.atlassian.com/git/tutorials/dotfiles)
+- [Zsh Theme : Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [Inspiration](https://github.com/Powerlevel9k/powerlevel9k/wiki/Show-Off-Your-Config)
