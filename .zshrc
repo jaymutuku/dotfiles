@@ -9,8 +9,14 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/don/.oh-my-zsh"
 
+# User configuration
+export PATH="/usr/local/bin:$PATH"
+
 ## use alias 'config' inplace of  regular 'git' to interact with configuration dir '.dotfiles'
 alias config='/usr/bin/git --git-dir=/home/don/.dotfiles/ --work-tree=/home/don'
+
+
+alias todo='todo.sh -d ~/.todo.cfg'
 
 ## Git alias
 alias 'gb=git branch'
@@ -32,8 +38,83 @@ alias 'grs=git remote show'
 alias 'glo=git log --pretty=oneline'
 alias 'glol=git log --graph  --pretty=oneline --decorate'
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source $ZSH/oh-my-zsh.sh
+
+plugins=(archlinux 
+	asdf 
+	bundler 
+	docker 
+	jsontools 
+	vscode 
+	web-search	
+	tig 
+	gitfast 
+	colored-man-pages 
+	colorize 
+	command-not-found 
+	cp 
+	dirhistory 
+	sudo
+	zsh-syntax-highlighting
+  )
+
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[cursor]='bold'
+
+ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green,bold'
+
+rule () {
+	print -Pn '%F{blue}'
+	local columns=$(tput cols)
+	for ((i=1; i<=columns; i++)); do
+	   printf "\u2588"
+	done
+	print -P '%f'
+}
+
+function _my_clear() {
+	echo
+	rule
+	zle clear-screen
+}
+zle -N _my_clear
+bindkey '^l' _my_clear
+
+# Ctrl-O opens zsh at the current location, and on exit, cd into ranger's last location.
+ranger-cd() {
+	tempfile=$(mktemp)
+	ranger --choosedir="$tempfile" "${@:-$(pwd)}" < $TTY
+	test -f "$tempfile" &&
+	if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+	cd -- "$(cat "$tempfile")"
+	fi
+	rm -f -- "$tempfile"
+	# hacky way of transferring over previous command and updating the screen
+	VISUAL=true zle edit-command-line
+}
+zle -N ranger-cd
+bindkey '^o' ranger-cd
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+
