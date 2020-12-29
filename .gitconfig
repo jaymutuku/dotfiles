@@ -25,3 +25,5 @@
 
 [core]
 	excludesfile = /home/don/.gitignore
+[credential]
+	helper = store
