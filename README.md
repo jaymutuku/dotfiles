@@ -1,8 +1,10 @@
 ### Terminal Setup & Config Files
 
+git branch + time and working directory path
+
 ![syntax highlight](./shell.png)
 
-git branch + time and working directory path
+
 
 ![git branch](./shell-2.png)
 
@@ -21,7 +23,7 @@ git branch + time and working directory path
 ### TODO
 
 - [ ] Add more file dotfiles<sup id ="fn1">[1](#add-more-dotfiles)</sup> in this repo.
-- [ ] Add
+- [ ] Add global .gitignore file
 
 <span id="fn1">1 </span> Add the following dotfiles [&#8617;](#fn1)
 
@@ -45,6 +47,8 @@ $ git config --list
 ```shell
 $ git config --get-regexp alias
 ```
+
+Alias:**gsa**
 
 ### Reference
 

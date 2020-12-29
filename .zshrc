@@ -53,18 +53,22 @@ alias 'gp=git push origin'
 alias 'gtd=git tag --delete'
 alias 'gpl=git pull'
 alias 'gplo=git pull origin'
-alias 'gc=git commit'
+alias 'gc=git commit -m'
 alias 'gst=git status'
 alias 'gd=git diff'
-alias 'gaa=git add .'
+alias 'ga=git add'
+alias 'gaa=git add --all'
 alias 'gco=git checkout'
-alias 'gsb=git switch branch'
+alias 'gsb=git switch --branch'
 alias 'gm=git merge'
 alias 'gl=git log'
 alias 'gr=git remote'
 alias 'grs=git remote show'
 alias 'glo=git log --pretty=oneline'
 alias 'glol=git log --graph  --pretty=oneline --decorate'
+
+# sga = show git alias - press 'q' to quit
+alias 'sga=git config --get-regexp alias'
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
